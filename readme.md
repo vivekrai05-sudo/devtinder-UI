@@ -85,3 +85,22 @@ pacakge.json->The package.json file is the central manifest and configuration fi
 version ->4.19.2->small change or bug fix->2 will become 3->patch
 ->4.20.3->minor change or back compability
 ^->automatically version get updated->auto updated to latest versions
+
+//how to takes all the code
+step-1->git init
+step2->git add .
+step3->git commit -m "created a server"
+step4->git remote add origin https://github.com/vivekrai05-sudo/devtinder-UI.git
+// git branch -M main
+// git push -u origin main
+
+Har baar code change karne ke baad bas ye 4 commands yaad rakho:
+
+git status
+git add .
+git commit -m "Describe what you changed"
+git push
+
+---
+
+HTTP METHODS:->
