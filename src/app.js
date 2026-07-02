@@ -9,15 +9,39 @@ const app = express(); //calling express function to create an express applicati
 //   );
 // }); //middleware function to handle incoming requests->request handler function
 
-app.get("/user", (req, res) => {
-  //"/user" is the route path, req is the request object, res is the response object->response handler function
-  res.send({ firstName: "John", lastName: "Doe" }); //sending json response
-}); //middleware function to handle incoming requests->request handler function
+// app.use(
+//   "/user",
+//   (req, res, next) => {
+//     //"/user" is the route path, req is the request object, res is the response object->response handler function
+//     console.log("middleware function is called");
+//     next(); //call the next middleware function in the stack
+//   },
+//   (req, res) => {
+//     res.send(
+//       "HAHHAHAHHAHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHHAHAHH",
+//     );
+//   },
+// ); //middleware function to handle incoming requests->request handler function
 
-app.post("/user", (req, res) => {
-  //"/user" is the route path, req is the request object, res is the response object->response handler function
-  res.send("User created"); //sending json response
-}); //middleware function to handle incoming requests->request handler function
+app.use(
+  "/user",
+  (req, res, next) => {
+    //"/user" is the route path, req is the request object, res is the response object->response handler function
+    console.log("Handling the route 1!");
+    // res.send("1st response");
+    next(); //call the next middleware function in the stack
+  },
+  (req, res, next) => {
+    console.log("Handling the route 2!");
+    // res.send("2nd response");
+    next(); //call the next middleware function in the stack
+  },
+  (req, res, next) => {
+    console.log("Handling the route 3!");
+    res.send("3rd response");
+    next(); //call the next middleware function in the stack
+  },
+);
 
 // app.use("/", (req, res) => {
 //   //"/" is the route path, req is the request object, res is the response object->response handler function

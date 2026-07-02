@@ -104,3 +104,12 @@ git push
 ---
 
 HTTP METHODS:->
+
+--------------------------------
+req.query=for query
+req.params=for params
+
+------------------------------
+LECTURE 05->
+MIDDLEWARE AND ERROR HANDLERS
+
